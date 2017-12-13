@@ -13,3 +13,6 @@ describe "get all quote route", :type => :request do
     expect(response).to have_http_status(:success)
   end
 end
+
+
+# fails by adding 1 to total, will figure it out later
