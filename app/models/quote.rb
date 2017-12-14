@@ -1,3 +1,4 @@
+
 class Quote < ApplicationRecord
 
   def self.search(name)

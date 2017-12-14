@@ -1,14 +1,12 @@
-class QuotesController < ApplicationController
+class QuotesController < ActionController::Base
 
   def index
-    @quotes = Quote.all
-    @quotes = Quote.search(params[:name]) unless params[:name].blank?
-    json_response(@quotes)
+    render jsonapi: Quote.all, include: [:author, :content]
   end
 
   def show
     @quote = Quote.find(params[:id])
-    json_response(@quote)
+    render jsonapi: @quote, include: [:author, :content]
   end
 
   def create
